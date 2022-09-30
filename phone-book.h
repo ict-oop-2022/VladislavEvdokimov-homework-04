@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 /**
  * Structure for call-record with defined equality operator and output operator
@@ -38,7 +39,7 @@ struct user_t {
  * Structure for user-info with defined equality operator and output operator
  */
 struct user_info_t {
-  user_t user{};
+  user_t user;
   double total_call_duration_s{0};
 
   friend bool operator==(const user_info_t &a, const user_info_t &b) {
@@ -137,4 +138,6 @@ public:
   bool empty() const;
 
 private:
+  std::vector<user_info_t> users_info;
+  std::vector<call_t> calls;
 };
